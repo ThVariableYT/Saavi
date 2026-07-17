@@ -28,3 +28,28 @@ Stage Summary:
 - Local media structure ready: user drops .flac into /public/music, .mp4 into /public/photos, song into /public/memories. Generated placeholder images (dog, band, album covers, memories) already present.
 - Single route `/` as required by environment; pages are viewport-locked (no scroll), not sections.
 - Production-ready, comment-free code. Dev server running cleanly on port 3000.
+
+---
+Task ID: 2
+Agent: main (Z.ai Code)
+Task: Visual overhaul — polished animal decorations, smooth blending page transitions, fix envelope letter bug, distinct dark themes per page, more premium fonts, denser decorations, make the site feel alive.
+
+Work Log:
+- Read all 10 existing birthday files to rewrite.
+- Upgraded fonts in layout.tsx: Bodoni_Moda (premium Didone display), Cormorant_Garamond (elegant body), Petit_Formal_Script (formal script). Set html className="dark" + color-scheme dark.
+- Overhauled globals.css: dark base palette (oklch warm dark), redefined .glass/.glass-strong for dark, .glow-gold, .vignette, gold-text gradient, thin-scrollbar gold; added alive keyframes (twinkle, drift-up, breathe, pulse-glow, float-slow/soft, spin-vinyl).
+- Rewrote decorations.tsx: all animals now use radial/linear gradients via useId (unique ids) — bunny (cream gradient fur, pink gradient ears, whiskers, cheeks), cat (orange gradient fur, stripes, green gradient eyes, chest), fox (orange gradient, cream belly, fluffy tail, amber eyes). Refined Sunflower (14 gradient petals, seeded center), LegoBrick (gradient + highlights), MusicNote (highlight). Added new decor: Sparkle (twinkle), Paw (pawprint), Petal (drifting). Added AmbientMotes (floating golden particles) and GlowOrb (breathing blurred light) for "alive" feel.
+- Fixed envelope: removed buggy y%-translate clip. New robust structure — envelope body + front pocket (z-20, masks letter bottom) + flap (opens rotateX -178, z drops to 5) + letter card (AnimatePresence, animates opacity/scale/y with delay after flap opens, bottom tucked behind pocket so it appears to emerge, scrollable max-height min(62vh,25rem)). Verified readable on desktop + mobile, no clipping.
+- Rebuilt all 8 pages with DISTINCT dark warm themes (no blue/indigo): 1 Midnight Plum+Gold, 2 Wine Burgundy+Rose-gold, 3 Espresso+Amber, 4 Emerald Forest+Bronze, 5 Aubergine+Stage Amber, 6 Moss+Soft Gold, 7 Rose Noir+Blush, 8 Obsidian Night+Gold (starfield+confetti). Each has GlowOrbs + AmbientMotes + vignette + ~12-15 scattered decorations (denser than before).
+- Updated router (page.tsx): AnimatePresence sync crossfade — incoming opacity0/scale0.985/blur8 → 1/1/0, outgoing → opacity0/scale1.015/blur8, duration 0.7 ease [0.4,0,0.2,1]. Pages overlap = true blend. pointerEvents locked during 720ms busy window to prevent interaction jank. Buttons use glass-strong.
+- Ran lint — clean. Dev server compiles clean.
+- Agent Browser verified: all 8 pages render no console/runtime errors; envelope opens with full readable letter (desktop + mobile); keyboard arrow nav blends between pages; dot nav + prev/next work; mobile (390px) layout clean on landing/envelope/qualities. VLM confirmed: distinct dark themes per page, dense decorations, no overlap/cutoff/clipping bugs, mobile-readable, letter not clipped.
+
+Stage Summary:
+- 8 distinct dark premium themes, each visually unique.
+- Premium fonts: Bodoni Moda + Cormorant Garamond + Petit Formal Script.
+- Polished gradient-shaded SVG animals (bunny/cat/fox) + refined sunflower/lego + new sparkle/paw/petal decor.
+- Denser decorations (~12-15 per page) + ambient floating motes + breathing glow orbs + vignette = "alive" feel.
+- Envelope letter bug fixed — reliably opens, fully readable & scrollable, no clip.
+- Smooth blending page transitions (crossfade + scale + blur, overlapping) on desktop & mobile.
+- Lint clean, dev server clean, browser-verified.

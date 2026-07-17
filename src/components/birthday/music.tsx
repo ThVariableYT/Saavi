@@ -3,11 +3,11 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, Pause } from "lucide-react";
-import { MusicNote, Sunflower, LegoBrick, CuteAnimal } from "./decorations";
+import { MusicNote, Sunflower, LegoBrick, CuteAnimal, Sparkle, AmbientMotes, GlowOrb } from "./decorations";
 
 const TRACKS = [
   { title: "Golden Hour", artist: "Our favourite tune", cover: "/music/cover1.jpg", src: "/music/track1.flac", color: "#E8B923" },
-  { title: "Starlight Lullaby", artist: "For the quiet nights", cover: "/music/cover2.jpg", src: "/music/track2.flac", color: "#7B68AE" },
+  { title: "Starlight Lullaby", artist: "For the quiet nights", cover: "/music/cover2.jpg", src: "/music/track2.flac", color: "#9D7BD8" },
   { title: "Sunflower Days", artist: "Summer in a song", cover: "/music/cover3.jpg", src: "/music/track3.flac", color: "#F2B90C" },
 ];
 
@@ -42,85 +42,81 @@ export default function MusicPage() {
       setCurrent(i);
       setError(false);
       setProgress(0);
-      setTimeout(() => {
-        audioRef.current?.play().then(() => setPlaying(true)).catch(() => setError(true));
-      }, 80);
+      setTimeout(() => { audioRef.current?.play().then(() => setPlaying(true)).catch(() => setError(true)); }, 80);
     }
   };
 
   return (
-    <div className="relative h-full w-full overflow-hidden flex flex-col"
+    <div className="relative h-full w-full overflow-hidden flex flex-col vignette"
       style={{
         background:
-          "radial-gradient(circle at 25% 30%, #3a2a1a 0%, transparent 45%), radial-gradient(circle at 80% 70%, #2a1f33 0%, transparent 40%), linear-gradient(160deg, #1c1410 0%, #15101c 100%)",
+          "radial-gradient(circle at 25% 30%, #2a2018 0%, transparent 45%), radial-gradient(circle at 80% 70%, #1f1810 0%, transparent 42%), linear-gradient(160deg, #14100c 0%, #0a0805 100%)",
       }}
     >
-      <MusicNote className="absolute w-5 h-6 text-amber-300/40" style={{ top: "12%", left: "8%" }} delay={0} />
-      <MusicNote className="absolute w-4 h-5 text-amber-300/30" style={{ top: "22%", right: "14%" }} delay={1} />
-      <MusicNote className="absolute w-6 h-7 text-amber-300/30" style={{ bottom: "20%", left: "18%" }} delay={2} />
-      <MusicNote className="absolute w-4 h-5 text-amber-300/40" style={{ bottom: "14%", right: "10%" }} delay={0.5} />
-      <Sunflower className="absolute w-12 h-12 sm:w-16 sm:h-16 opacity-70" style={{ top: "8%", right: "6%" }} delay={0.3} />
-      <CuteAnimal type="cat" className="absolute w-12 h-12 sm:w-16 sm:h-16 opacity-80" style={{ bottom: "10%", right: "24%" }} delay={0.6} />
-      <LegoBrick className="absolute w-10 h-8 opacity-70" style={{ top: "60%", left: "4%" }} delay={0.4} color="#E9C46A" />
+      <GlowOrb className="absolute w-[32rem] h-[32rem] top-10 left-10" color="rgba(232,165,35,0.16)" />
+      <GlowOrb className="absolute w-[28rem] h-[28rem] bottom-0 right-0" color="rgba(157,123,216,0.12)" delay={3} />
+      <AmbientMotes count={20} color="rgba(232,165,35,0.6)" />
 
-      <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 px-6 py-6 max-w-6xl mx-auto w-full">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative shrink-0"
-        >
-          <div className="relative" style={{ width: "min(60vw, 16rem)", height: "min(60vw, 16rem)" }}>
+      <MusicNote className="absolute w-6 h-7 text-amber-300/50" style={{ top: "12%", left: "7%" }} delay={0} />
+      <MusicNote className="absolute w-5 h-6 text-amber-300/40" style={{ top: "22%", right: "12%" }} delay={1.2} />
+      <MusicNote className="absolute w-7 h-8 text-amber-300/40" style={{ bottom: "18%", left: "14%" }} delay={2.4} />
+      <MusicNote className="absolute w-5 h-6 text-amber-300/50" style={{ bottom: "12%", right: "8%" }} delay={0.6} />
+      <MusicNote className="absolute w-4 h-5 text-amber-300/30" style={{ top: "50%", left: "3%" }} delay={1.8} />
+      <Sunflower className="absolute w-12 h-12 sm:w-16 sm:h-16 opacity-80" style={{ top: "7%", right: "5%" }} delay={0.3} />
+      <Sunflower className="absolute w-9 h-9 sm:w-12 sm:h-12 opacity-70" style={{ bottom: "8%", left: "4%" }} delay={0.7} />
+      <LegoBrick className="absolute w-10 h-8 opacity-75" style={{ top: "58%", left: "4%" }} delay={0.4} color="#E9C46A" />
+      <LegoBrick className="absolute w-9 h-7 opacity-70" style={{ bottom: "24%", right: "6%" }} delay={0.9} color="#E63946" />
+      <CuteAnimal type="cat" className="absolute w-12 h-12 sm:w-16 sm:h-16 opacity-85" style={{ bottom: "10%", right: "22%" }} delay={0.6} />
+      <CuteAnimal type="bunny" className="absolute w-10 h-10 sm:w-14 sm:h-14 opacity-75" style={{ top: "30%", right: "3%" }} delay={1.1} />
+      <Sparkle className="absolute w-3 h-3 text-amber-300" style={{ top: "40%", left: "20%" }} delay={0.8} />
+      <Sparkle className="absolute w-4 h-4 text-amber-200" style={{ bottom: "40%", right: "30%" }} delay={2} />
+
+      <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-14 px-6 py-6 max-w-6xl mx-auto w-full">
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="relative shrink-0">
+          <div className="relative" style={{ width: "min(62vw, 17rem)", height: "min(62vw, 17rem)" }}>
             <motion.div
               animate={{ rotate: playing ? 360 : 0 }}
               transition={{ duration: 3, repeat: playing ? Infinity : 0, ease: "linear" }}
               className="absolute inset-0 rounded-full"
               style={{
-                background: "radial-gradient(circle, #1a1a1a 30%, #0a0a0a 31%, #1a1a1a 32%, #0a0a0a 33%, #1a1a1a 34%, #111 35%, #0a0a0a 45%, #1a1a1a 46%, #0a0a0a 60%, #111 61%, #0a0a0a 75%, #1a1a1a 76%, #000 100%)",
-                boxShadow: "0 20px 50px -10px rgba(0,0,0,0.7), inset 0 0 30px rgba(0,0,0,0.5)",
+                background: "radial-gradient(circle, #1a1a1a 28%, #0a0a0a 29%, #1a1a1a 30%, #0a0a0a 31%, #1a1a1a 32%, #111 35%, #0a0a0a 45%, #1a1a1a 46%, #0a0a0a 60%, #111 61%, #0a0a0a 75%, #1a1a1a 76%, #000 100%)",
+                boxShadow: "0 25px 60px -12px rgba(0,0,0,0.8), inset 0 0 30px rgba(0,0,0,0.5)",
               }}
             >
-              <div className="absolute inset-0 rounded-full" style={{ boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.04)" }} />
+              <div className="absolute inset-0 rounded-full" style={{ boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.05)" }} />
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden"
-                style={{ width: "42%", height: "42%", boxShadow: "0 0 0 2px rgba(0,0,0,0.4)" }}
+                style={{ width: "44%", height: "44%", boxShadow: "0 0 0 3px #0a0a0a, 0 0 0 4px rgba(232,165,35,0.3)" }}
               >
                 {current !== null ? (
                   <img src={TRACKS[current].cover} alt={TRACKS[current].title} className="w-full h-full object-cover" />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center" style={{ background: TRACKS[0].color }}>
-                    <MusicNote className="w-8 h-10 text-white/80" />
+                  <div className="w-full h-full flex items-center justify-center" style={{ background: "linear-gradient(135deg,#3a2a1a,#1a1208)" }}>
+                    <MusicNote className="w-8 h-10 text-amber-300/70" />
                   </div>
                 )}
               </div>
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-stone-800 border border-stone-600 z-10" />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-stone-900 border border-stone-600 z-10" />
             </motion.div>
 
             <motion.div
-              animate={{ rotate: playing ? 22 : -8 }}
+              animate={{ rotate: playing ? 20 : -10 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="absolute -right-2 -top-2 origin-top-right z-20"
+              className="absolute -right-1 -top-2 origin-top-right z-20"
               style={{ width: "8rem", height: "10rem" }}
             >
-              <div className="absolute right-3 top-0 w-2 h-2 rounded-full bg-stone-400" />
-              <div className="absolute right-3.5 top-1 w-5 h-5 rounded-full bg-gradient-to-br from-stone-300 to-stone-500" />
-              <div className="absolute right-4 top-4 w-1.5 rounded-full bg-gradient-to-b from-stone-300 to-stone-600" style={{ height: "8rem", transformOrigin: "top", rotate: "-8deg" }} />
+              <div className="absolute right-3 top-0 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-stone-300 to-stone-600" />
+              <div className="absolute right-3.5 top-1 w-6 h-6 rounded-full bg-gradient-to-br from-stone-200 to-stone-500" style={{ boxShadow: "inset 0 2px 3px rgba(255,255,255,0.4)" }} />
+              <div className="absolute right-5 top-5 w-1.5 rounded-full bg-gradient-to-b from-stone-200 to-stone-600" style={{ height: "8.5rem", transformOrigin: "top", rotate: "-8deg" }} />
             </motion.div>
           </div>
-          <p className="text-center mt-4 font-script text-amber-200/80 text-xl">Now Playing</p>
-          <p className="text-center font-elegant text-amber-100/60 text-sm">
+          <p className="text-center mt-5 font-script text-amber-200/90 text-xl sm:text-2xl">Now Playing</p>
+          <p className="text-center font-elegant text-amber-100/60 text-sm sm:text-base">
             {current !== null ? TRACKS[current].title : "Choose a track"}
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-          className="flex-1 w-full max-w-md space-y-3"
-        >
-          <p className="font-elegant tracking-[0.3em] uppercase text-amber-300/60 text-[0.6rem] sm:text-xs mb-2">
-            Three of our favourites
-          </p>
+        <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.15 }} className="flex-1 w-full max-w-md space-y-3">
+          <p className="font-elegant tracking-[0.35em] uppercase text-amber-300/60 text-[0.6rem] sm:text-xs mb-2">Three of our favourites</p>
           {TRACKS.map((track, i) => {
             const active = current === i;
             return (
@@ -129,25 +125,17 @@ export default function MusicPage() {
                 onClick={() => select(i)}
                 whileHover={{ scale: 1.02, x: 4 }}
                 whileTap={{ scale: 0.98 }}
-                className={`w-full flex items-center gap-4 p-3 rounded-xl text-left transition-colors ${active ? "glass" : "hover:bg-white/5"}`}
-                style={{ boxShadow: active ? `inset 0 0 0 1px ${track.color}55` : "none" }}
+                className={`w-full flex items-center gap-4 p-3 rounded-xl text-left transition-colors ${active ? "glass-strong" : "hover:bg-white/5"}`}
+                style={{ boxShadow: active ? `inset 0 0 0 1px ${track.color}66, 0 0 30px -10px ${track.color}55` : "inset 0 0 0 1px rgba(255,255,255,0.05)" }}
               >
                 <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden shrink-0">
                   <img src={track.cover} alt={track.title} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                    {active && playing ? (
-                      <Pause className="w-5 h-5 text-white" fill="white" />
-                    ) : (
-                      <Play className="w-5 h-5 text-white" fill="white" />
-                    )}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/45">
+                    {active && playing ? <Pause className="w-5 h-5 text-white" fill="white" /> : <Play className="w-5 h-5 text-white" fill="white" />}
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className={`font-serif-display truncate ${active ? "text-amber-100" : "text-stone-200"}`}
-                    style={{ fontSize: "clamp(1rem, 2vw, 1.2rem)" }}
-                  >
-                    {track.title}
-                  </p>
+                  <p className={`font-serif-display truncate ${active ? "text-amber-100" : "text-stone-200"}`} style={{ fontSize: "clamp(1.05rem, 2vw, 1.25rem)" }}>{track.title}</p>
                   <p className="font-elegant text-stone-400 text-xs sm:text-sm truncate">{track.artist}</p>
                   {active && (
                     <div className="mt-2 h-0.5 bg-white/10 rounded-full overflow-hidden">
@@ -160,12 +148,7 @@ export default function MusicPage() {
           })}
           {error && (
             <AnimatePresence>
-              <motion.p
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                className="text-center text-amber-300/60 font-elegant text-xs sm:text-sm pt-2"
-              >
+              <motion.p initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-center text-amber-300/60 font-elegant text-xs sm:text-sm pt-2">
                 Add your <span className="font-mono text-amber-200">.flac</span> files in <span className="font-mono text-amber-200">/public/music/</span> to play these tracks
               </motion.p>
             </AnimatePresence>
@@ -173,9 +156,7 @@ export default function MusicPage() {
         </motion.div>
       </div>
 
-      {current !== null && (
-        <audio ref={audioRef} src={TRACKS[current].src} preload="none" crossOrigin="anonymous" />
-      )}
+      {current !== null && <audio ref={audioRef} src={TRACKS[current].src} preload="none" crossOrigin="anonymous" />}
     </div>
   );
 }

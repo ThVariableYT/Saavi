@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
-import { Sunflower, LegoBrick, CuteAnimal } from "./decorations";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Sunflower, LegoBrick, CuteAnimal, Sparkle, AmbientMotes, GlowOrb } from "./decorations";
 
 type Slide = { type: "image" | "video"; src: string; caption: string };
 
@@ -19,7 +19,6 @@ const SLIDES: Slide[] = [
 export default function Photos() {
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(0);
-  const dragStart = useRef(0);
 
   const go = (d: number) => {
     setDir(d);
@@ -32,30 +31,29 @@ export default function Photos() {
   };
 
   return (
-    <div className="relative h-full w-full overflow-hidden flex flex-col items-center justify-center px-4 sm:px-6"
+    <div className="relative h-full w-full overflow-hidden flex flex-col items-center justify-center px-4 sm:px-6 vignette"
       style={{
         background:
-          "radial-gradient(circle at 30% 20%, #fbf3e0 0%, transparent 50%), radial-gradient(circle at 70% 80%, #f6e3c6 0%, transparent 45%), linear-gradient(160deg, #faf2e2 0%, #f0e0c2 100%)",
+          "radial-gradient(circle at 28% 22%, #143028 0%, transparent 48%), radial-gradient(circle at 76% 76%, #0e2218 0%, transparent 45%), linear-gradient(160deg, #0c1612 0%, #060b09 100%)",
       }}
     >
-      <Sunflower className="absolute w-10 h-10 sm:w-14 sm:h-14" style={{ top: "8%", left: "6%" }} delay={0.2} />
-      <Sunflower className="absolute w-8 h-8 sm:w-12 sm:h-12" style={{ bottom: "14%", right: "8%" }} delay={0.5} />
-      <LegoBrick className="absolute w-10 h-8" style={{ top: "16%", right: "14%" }} delay={0.3} color="#9D4EDD" />
-      <LegoBrick className="absolute w-8 h-6" style={{ bottom: "22%", left: "10%" }} delay={0.6} color="#2A9D8F" />
-      <CuteAnimal type="fox" className="absolute w-10 h-10 sm:w-14 sm:h-14" style={{ bottom: "10%", left: "20%" }} delay={0.4} />
+      <GlowOrb className="absolute w-[30rem] h-[30rem] top-0 right-0" color="rgba(200,148,90,0.16)" />
+      <AmbientMotes count={18} color="rgba(200,220,170,0.5)" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="relative z-10 text-center mb-3 sm:mb-5"
-      >
-        <p className="font-elegant tracking-[0.35em] uppercase text-amber-800/70 text-[0.6rem] sm:text-xs mb-1.5">
-          A Box of Memories
-        </p>
-        <h2 className="font-serif-display text-amber-900" style={{ fontSize: "clamp(1.6rem, 4.5vw, 2.6rem)" }}>
-          Snapshots of Us
-        </h2>
+      <Sunflower className="absolute w-11 h-11 sm:w-14 sm:h-14 opacity-85" style={{ top: "8%", left: "5%" }} delay={0.2} />
+      <Sunflower className="absolute w-9 h-9 sm:w-12 sm:h-12 opacity-75" style={{ bottom: "12%", right: "6%" }} delay={0.5} />
+      <Sunflower className="absolute w-8 h-8 sm:w-10 sm:h-10 opacity-70" style={{ top: "52%", right: "3%" }} delay={0.8} />
+      <LegoBrick className="absolute w-10 h-8 opacity-75" style={{ top: "16%", right: "12%" }} delay={0.3} color="#9D4EDD" />
+      <LegoBrick className="absolute w-9 h-7 opacity-70" style={{ bottom: "20%", left: "8%" }} delay={0.6} color="#2A9D8F" />
+      <LegoBrick className="absolute w-8 h-6 opacity-65" style={{ top: "44%", left: "4%" }} delay={0.9} color="#E8B923" />
+      <CuteAnimal type="fox" className="absolute w-11 h-11 sm:w-14 sm:h-14 opacity-80" style={{ bottom: "8%", left: "18%" }} delay={0.4} />
+      <CuteAnimal type="bunny" className="absolute w-10 h-10 sm:w-12 sm:h-12 opacity-75" style={{ top: "26%", left: "16%" }} delay={0.7} />
+      <Sparkle className="absolute w-3 h-3 text-amber-300" style={{ top: "34%", right: "24%" }} delay={0.9} />
+      <Sparkle className="absolute w-4 h-4 text-amber-200" style={{ bottom: "32%", left: "24%" }} delay={2.1} />
+
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative z-10 text-center mb-3 sm:mb-5">
+        <p className="font-elegant tracking-[0.4em] uppercase text-emerald-200/60 text-[0.6rem] sm:text-xs mb-1.5">A Box of Memories</p>
+        <h2 className="font-serif-display text-emerald-50" style={{ fontSize: "clamp(1.6rem, 4.6vw, 2.7rem)" }}>Snapshots of Us</h2>
       </motion.div>
 
       <div className="relative z-10 w-full max-w-md sm:max-w-lg">
@@ -68,55 +66,44 @@ export default function Photos() {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.2}
               onDragEnd={onDragEnd}
-              initial={{ opacity: 0, x: dir >= 0 ? 120 : -120, rotate: dir >= 0 ? 4 : -4, scale: 0.9 }}
+              initial={{ opacity: 0, x: dir >= 0 ? 120 : -120, rotate: dir >= 0 ? 5 : -5, scale: 0.9 }}
               animate={{ opacity: 1, x: 0, rotate: -1.5, scale: 1 }}
-              exit={{ opacity: 0, x: dir >= 0 ? -120 : 120, rotate: dir >= 0 ? -4 : 4, scale: 0.9 }}
+              exit={{ opacity: 0, x: dir >= 0 ? -120 : 120, rotate: dir >= 0 ? -5 : 5, scale: 0.9 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="absolute inset-0"
             >
-              <div className="relative w-full h-full rounded-sm p-3 pb-14"
-                style={{
-                  background: "linear-gradient(180deg, #fffdf7 0%, #fbf5e6 100%)",
-                  boxShadow: "0 20px 50px -15px rgba(90,60,10,0.35), 0 2px 4px rgba(0,0,0,0.05)",
-                }}
+              <div className="relative w-full h-full rounded-md p-3 pb-14"
+                style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 100%)", boxShadow: "0 25px 60px -18px rgba(0,0,0,0.7), inset 0 0 0 1px rgba(200,220,170,0.15)", backdropFilter: "blur(8px)" }}
               >
-                <div className="relative w-full h-full overflow-hidden rounded-sm bg-stone-200">
+                <div className="relative w-full h-full overflow-hidden rounded-sm bg-stone-900">
                   {SLIDES[index].type === "image" ? (
                     <img src={SLIDES[index].src} alt={SLIDES[index].caption} className="w-full h-full object-cover" draggable={false} />
                   ) : (
                     <video src={SLIDES[index].src} controls playsInline className="w-full h-full object-cover" poster="/photos/memory4.jpg" />
                   )}
                 </div>
-                <p className="absolute bottom-3 left-0 right-0 text-center font-script text-amber-900 text-base sm:text-lg px-4">
-                  {SLIDES[index].caption}
-                </p>
+                <p className="absolute bottom-3 left-0 right-0 text-center font-script text-amber-100 text-base sm:text-lg px-4">{SLIDES[index].caption}</p>
               </div>
             </motion.div>
           </AnimatePresence>
 
           <button onClick={() => go(-1)} aria-label="Previous photo"
-            className="absolute -left-2 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full glass premium-shadow flex items-center justify-center text-amber-900 hover:scale-110 transition-transform">
+            className="absolute -left-2 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-strong premium-shadow flex items-center justify-center text-emerald-50 hover:scale-110 transition-transform">
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button onClick={() => go(1)} aria-label="Next photo"
-            className="absolute -right-2 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full glass premium-shadow flex items-center justify-center text-amber-900 hover:scale-110 transition-transform">
+            className="absolute -right-2 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-strong premium-shadow flex items-center justify-center text-emerald-50 hover:scale-110 transition-transform">
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
 
         <div className="flex items-center justify-center gap-2 mt-5">
           {SLIDES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => { setDir(i > index ? 1 : -1); setIndex(i); }}
-              aria-label={`Go to slide ${i + 1}`}
-              className={`rounded-full transition-all ${i === index ? "w-6 h-2 bg-amber-700" : "w-2 h-2 bg-amber-700/30 hover:bg-amber-700/50"}`}
-            />
+            <button key={i} onClick={() => { setDir(i > index ? 1 : -1); setIndex(i); }} aria-label={`Go to slide ${i + 1}`}
+              className={`rounded-full transition-all ${i === index ? "w-6 h-2 bg-emerald-300" : "w-2 h-2 bg-emerald-200/30 hover:bg-emerald-200/55"}`} />
           ))}
         </div>
-        <p className="text-center mt-3 font-elegant text-amber-800/60 text-xs sm:text-sm">
-          {index + 1} / {SLIDES.length} · swipe or tap the arrows
-        </p>
+        <p className="text-center mt-3 font-elegant text-emerald-100/50 text-xs sm:text-sm">{index + 1} / {SLIDES.length} · swipe or tap the arrows</p>
       </div>
     </div>
   );

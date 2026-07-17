@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Cormorant_Garamond, Dancing_Script } from "next/font/google";
+import { Bodoni_Moda, Cormorant_Garamond, Petit_Formal_Script } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const bodoni = Bodoni_Moda({
+  variable: "--font-bodoni",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -17,30 +17,26 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const dancing = Dancing_Script({
-  variable: "--font-dancing",
+const petit = Petit_Formal_Script({
+  variable: "--font-petit",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Happy Birthday, Saavi — 25th July",
+  title: "For Saavi — 25th July",
   description: "A little world made with love to celebrate Saavi's birthday.",
-  icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
-  },
+  icons: { icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg" },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
       <body
-        className={`${playfair.variable} ${cormorant.variable} ${dancing.variable} antialiased`}
+        className={`${bodoni.variable} ${cormorant.variable} ${petit.variable} antialiased`}
       >
         {children}
         <Toaster />
