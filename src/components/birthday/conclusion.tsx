@@ -2,25 +2,26 @@
 
 import { motion } from "framer-motion";
 import { RotateCcw } from "lucide-react";
-import { Sunflower, LegoBrick, CuteAnimal, Sparkle, AmbientMotes, GlowOrb } from "./decorations";
+import { Sunflower, LegoBrick, CuteAnimal, Sparkle, AmbientMotes, GlowOrb, mulberry32 } from "./decorations";
 
+const rng = mulberry32(98765);
 const CONFETTI = Array.from({ length: 32 }).map((_, i) => ({
   id: i,
-  left: Math.random() * 100,
-  delay: Math.random() * 5,
-  duration: 4 + Math.random() * 5,
+  left: rng() * 100,
+  delay: rng() * 5,
+  duration: 4 + rng() * 5,
   color: ["#E8B923", "#E63946", "#2A9D8F", "#9D4EDD", "#F4A261", "#E07A8B", "#F2B90C"][i % 7],
   shape: i % 3,
-  size: 6 + Math.random() * 9,
+  size: 6 + rng() * 9,
 }));
 
 const STARS = Array.from({ length: 60 }).map((_, i) => ({
   id: i,
-  top: Math.random() * 100,
-  left: Math.random() * 100,
-  size: Math.random() * 2 + 0.8,
-  delay: Math.random() * 4,
-  duration: 2 + Math.random() * 3,
+  top: rng() * 100,
+  left: rng() * 100,
+  size: rng() * 2 + 0.8,
+  delay: rng() * 4,
+  duration: 2 + rng() * 3,
 }));
 
 export default function Conclusion({ onRestart }: { onRestart?: () => void }) {
@@ -70,7 +71,14 @@ export default function Conclusion({ onRestart }: { onRestart?: () => void }) {
         <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="font-elegant tracking-[0.5em] uppercase text-amber-200/70 text-[0.6rem] sm:text-xs mb-3">And so, the wish</motion.p>
 
         <motion.h2 initial={{ opacity: 0, scale: 0.85, filter: "blur(12px)" }} animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }} transition={{ duration: 1, delay: 0.4, type: "spring", bounce: 0.3 }} className="font-serif-display gold-text leading-tight" style={{ fontSize: "clamp(2rem, 7vw, 4rem)" }}>Happy Birthday,</motion.h2>
-        <motion.h2 initial={{ opacity: 0, scale: 0.7, filter: "blur(16px)" }} animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }} transition={{ duration: 1.2, delay: 0.6, type: "spring", bounce: 0.3 }} className="font-script gold-text leading-none -mt-1 glow-gold" style={{ fontSize: "clamp(3.5rem, 13vw, 8rem)" }}>Saavi</motion.h2>
+        <div className="relative inline-block">
+          <motion.div aria-hidden className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            style={{ width: "130%", height: "160%", background: "radial-gradient(ellipse at center, rgba(232,185,35,0.55) 0%, rgba(232,185,35,0.18) 35%, transparent 70%)", filter: "blur(34px)" }}
+            animate={{ opacity: [0.55, 0.95, 0.55], scale: [0.92, 1.06, 0.92] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.h2 initial={{ opacity: 0, scale: 0.7, filter: "blur(16px)" }} animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }} transition={{ duration: 1.2, delay: 0.6, type: "spring", bounce: 0.3 }} className="relative font-script gold-text leading-none -mt-1" style={{ fontSize: "clamp(3.5rem, 13vw, 8rem)" }}>Saavi</motion.h2>
+        </div>
 
         <motion.div initial={{ opacity: 0, scaleX: 0 }} animate={{ opacity: 1, scaleX: 1 }} transition={{ duration: 1, delay: 1 }} className="mx-auto my-5 h-px bg-gradient-to-r from-transparent via-amber-300/70 to-transparent w-2/3" />
 

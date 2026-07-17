@@ -53,3 +53,22 @@ Stage Summary:
 - Envelope letter bug fixed — reliably opens, fully readable & scrollable, no clip.
 - Smooth blending page transitions (crossfade + scale + blur, overlapping) on desktop & mobile.
 - Lint clean, dev server clean, browser-verified.
+
+---
+Task ID: 3
+Agent: main (Z.ai Code)
+Task: Fix hydration error, fix the glow box around "Saavi" on page 1 & 8, improve the vinyl player look.
+
+Work Log:
+- Diagnosed hydration error: caused by Math.random() in SSR'd client components — conclusion.tsx (CONFETTI/STARS module-scope arrays) and decorations.tsx AmbientMotes (component body). Server and client produce different random values → attribute mismatch.
+- Added a deterministic mulberry32 seeded PRNG to decorations.tsx (exported). AmbientMotes now derives positions from seed (deterministic per count+seed). conclusion.tsx CONFETTI & STARS now built from mulberry32(98765) — identical server/client.
+- Fixed glow box: removed .glow-gold box-shadow from "Saavi" h1 on landing.tsx and conclusion.tsx. Replaced with an absolutely-positioned, blurred radial-gradient halo div behind the text that softly pulses (opacity+scale loop) — a diffuse golden glow, not a rectangle.
+- Rebuilt vinyl player (music.tsx): fine concentric grooves via two repeating-radial-gradients; subtle light sheen (radial highlight top-left + conic shimmer); gold metallic ring around center label; lead-out groove ring; refined center label with album art + glassy highlight; realistic spindle hole with metallic gradient; realistic tonearm with metallic counterweight, pivot, brushed-metal arm tube (horizontal gradient), headshell cartridge, and stylus tip; soft golden glow behind the disc.
+- Lint clean. Dev server clean.
+- Agent Browser verified: NO hydration errors in console on landing AND conclusion (both reloads clean); glow is confirmed soft halo (VLM) on both pages; vinyl shows fine grooves + gold ring + realistic tonearm (VLM), no bugs; mobile vinyl layout clean.
+
+Stage Summary:
+- Hydration mismatch eliminated via deterministic seeded PRNG (mulberry32).
+- "Saavi" glow is now an elegant pulsing radial halo (no rectangular box) on page 1 & 8.
+- Vinyl player upgraded to premium: fine grooves, sheen, gold label ring, realistic tonearm with counterweight + headshell.
+- All verified on desktop + mobile, no errors.

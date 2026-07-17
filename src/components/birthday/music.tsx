@@ -73,40 +73,55 @@ export default function MusicPage() {
 
       <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-14 px-6 py-6 max-w-6xl mx-auto w-full">
         <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="relative shrink-0">
-          <div className="relative" style={{ width: "min(62vw, 17rem)", height: "min(62vw, 17rem)" }}>
+          <div className="relative" style={{ width: "min(64vw, 18rem)", height: "min(64vw, 18rem)" }}>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="absolute inset-0 rounded-full pointer-events-none"
+              style={{ background: "radial-gradient(circle at 50% 50%, rgba(232,185,35,0.16), transparent 65%)", filter: "blur(28px)", transform: "scale(1.1)" }}
+            />
             <motion.div
               animate={{ rotate: playing ? 360 : 0 }}
               transition={{ duration: 3, repeat: playing ? Infinity : 0, ease: "linear" }}
               className="absolute inset-0 rounded-full"
               style={{
-                background: "radial-gradient(circle, #1a1a1a 28%, #0a0a0a 29%, #1a1a1a 30%, #0a0a0a 31%, #1a1a1a 32%, #111 35%, #0a0a0a 45%, #1a1a1a 46%, #0a0a0a 60%, #111 61%, #0a0a0a 75%, #1a1a1a 76%, #000 100%)",
-                boxShadow: "0 25px 60px -12px rgba(0,0,0,0.8), inset 0 0 30px rgba(0,0,0,0.5)",
+                background: "#0a0a0a",
+                boxShadow: "0 30px 70px -14px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.06), inset 0 0 40px rgba(0,0,0,0.6)",
               }}
             >
-              <div className="absolute inset-0 rounded-full" style={{ boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.05)" }} />
+              <div className="absolute inset-0 rounded-full" style={{ background: "repeating-radial-gradient(circle at center, #0c0c0c 0px, #0c0c0c 1.4px, #181818 2.4px, #0c0c0c 3.4px)" }} />
+              <div className="absolute inset-0 rounded-full" style={{ background: "repeating-radial-gradient(circle at center, transparent 0px, transparent 7px, rgba(255,255,255,0.02) 7px, rgba(255,255,255,0.02) 8px)" }} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full" style={{ width: "47%", height: "47%", boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.6), 0 0 0 1px rgba(232,185,35,0.25)" }} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full" style={{ width: "49%", height: "49%", boxShadow: "0 0 0 2px #0a0a0a, 0 0 0 3px rgba(232,185,35,0.45), 0 0 0 4px rgba(10,10,10,0.9)" }} />
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden"
-                style={{ width: "44%", height: "44%", boxShadow: "0 0 0 3px #0a0a0a, 0 0 0 4px rgba(232,165,35,0.3)" }}
+                style={{ width: "44%", height: "44%", boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.5)" }}
               >
                 {current !== null ? (
                   <img src={TRACKS[current].cover} alt={TRACKS[current].title} className="w-full h-full object-cover" />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center" style={{ background: "linear-gradient(135deg,#3a2a1a,#1a1208)" }}>
-                    <MusicNote className="w-8 h-10 text-amber-300/70" />
+                  <div className="w-full h-full flex items-center justify-center" style={{ background: "radial-gradient(circle at 35% 30%, #4a3420, #1a1208)" }}>
+                    <MusicNote className="w-9 h-11 text-amber-300/70" />
                   </div>
                 )}
+                <div className="absolute inset-0 rounded-full" style={{ background: "radial-gradient(circle at 30% 25%, rgba(255,255,255,0.18), transparent 45%)" }} />
               </div>
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-stone-900 border border-stone-600 z-10" />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full z-10" style={{ background: "radial-gradient(circle at 35% 30%, #4a4a4a, #0a0a0a)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.12)" }} />
+              <div className="absolute inset-0 rounded-full" style={{ background: "radial-gradient(circle at 32% 26%, rgba(255,255,255,0.14), transparent 38%)" }} />
+              <div className="absolute inset-0 rounded-full" style={{ background: "conic-gradient(from 220deg at 50% 50%, transparent 0deg, rgba(255,255,255,0.05) 40deg, transparent 90deg, transparent 220deg, rgba(255,255,255,0.04) 260deg, transparent 310deg)" }} />
             </motion.div>
 
             <motion.div
-              animate={{ rotate: playing ? 20 : -10 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="absolute -right-1 -top-2 origin-top-right z-20"
-              style={{ width: "8rem", height: "10rem" }}
+              animate={{ rotate: playing ? 18 : -12 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+              className="absolute -right-2 sm:-right-3 -top-3 sm:-top-4 origin-top-right z-20"
+              style={{ width: "9rem", height: "11rem" }}
             >
-              <div className="absolute right-3 top-0 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-stone-300 to-stone-600" />
-              <div className="absolute right-3.5 top-1 w-6 h-6 rounded-full bg-gradient-to-br from-stone-200 to-stone-500" style={{ boxShadow: "inset 0 2px 3px rgba(255,255,255,0.4)" }} />
-              <div className="absolute right-5 top-5 w-1.5 rounded-full bg-gradient-to-b from-stone-200 to-stone-600" style={{ height: "8.5rem", transformOrigin: "top", rotate: "-8deg" }} />
+              <div className="absolute right-2 top-0 w-4 h-4 rounded-full" style={{ background: "radial-gradient(circle at 35% 30%, #e8e8e8, #6a6a6a)", boxShadow: "inset 0 1px 2px rgba(255,255,255,0.5), 0 2px 5px rgba(0,0,0,0.5)" }} />
+              <div className="absolute right-3.5 top-3 w-7 h-7 rounded-full" style={{ background: "radial-gradient(circle at 35% 30%, #f0f0f0, #8a8a8a)", boxShadow: "inset 0 2px 3px rgba(255,255,255,0.5), 0 3px 8px rgba(0,0,0,0.5)" }} />
+              <div className="absolute right-5 top-9 w-1.5 rounded-full" style={{ height: "7.5rem", transformOrigin: "top", rotate: "-10deg", background: "linear-gradient(to right, #4a4a4a, #d8d8d8 40%, #f4f4f4 50%, #b0b0b0 60%, #4a4a4a)", boxShadow: "0 1px 3px rgba(0,0,0,0.5)" }} />
+              <div className="absolute right-[3.4rem] top-[7.2rem] w-6 h-3 rounded-sm" style={{ transform: "rotate(-10deg)", background: "linear-gradient(to right, #3a3a3a, #c0c0c0 50%, #3a3a3a)", boxShadow: "0 2px 5px rgba(0,0,0,0.6)" }} />
+              <div className="absolute right-[4.6rem] top-[7.5rem] w-2 h-2 rounded-sm" style={{ transform: "rotate(-10deg)", background: "#1a1a1a", boxShadow: "0 0 4px rgba(232,185,35,0.4)" }} />
             </motion.div>
           </div>
           <p className="text-center mt-5 font-script text-amber-200/90 text-xl sm:text-2xl">Now Playing</p>

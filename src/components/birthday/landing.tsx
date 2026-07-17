@@ -46,15 +46,24 @@ export default function Landing() {
           Happy Birthday
         </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.7, y: 30, filter: "blur(20px)" }}
-          animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 1.2, delay: 0.4, type: "spring", bounce: 0.3 }}
-          className="font-script gold-text leading-none glow-gold"
-          style={{ fontSize: "clamp(5rem, 22vw, 14rem)" }}
-        >
-          Saavi
-        </motion.h1>
+        <div className="relative inline-block">
+          <motion.div
+            aria-hidden
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            style={{ width: "135%", height: "170%", background: "radial-gradient(ellipse at center, rgba(232,185,35,0.5) 0%, rgba(232,185,35,0.16) 35%, transparent 70%)", filter: "blur(40px)" }}
+            animate={{ opacity: [0.5, 0.92, 0.5], scale: [0.9, 1.08, 0.9] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.7, y: 30, filter: "blur(20px)" }}
+            animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1.2, delay: 0.4, type: "spring", bounce: 0.3 }}
+            className="relative font-script gold-text leading-none"
+            style={{ fontSize: "clamp(5rem, 22vw, 14rem)" }}
+          >
+            Saavi
+          </motion.h1>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, scaleX: 0 }}
