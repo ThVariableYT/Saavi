@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react";
 import Landing from "@/components/birthday/landing";
 import Envelope from "@/components/birthday/envelope";
 import MusicPage from "@/components/birthday/music";
@@ -11,6 +11,7 @@ import Memories from "@/components/birthday/memories";
 import Oreo from "@/components/birthday/oreo";
 import Qualities from "@/components/birthday/qualities";
 import Conclusion from "@/components/birthday/conclusion";
+import { useFullscreen } from "@/hooks/use-fullscreen";
 
 const PAGE_TITLES = ["Welcome", "Your Letter", "Our Songs", "Snapshots", "The Soundtrack", "In Memory", "What Makes You", "The Wish"];
 const pages = [Landing, Envelope, MusicPage, Photos, Memories, Oreo, Qualities, Conclusion];
@@ -19,6 +20,7 @@ export default function Home() {
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(0);
   const [busy, setBusy] = useState(false);
+  const fs = useFullscreen();
 
   useEffect(() => {
     const readHash = () => {
@@ -56,8 +58,13 @@ export default function Home() {
 
   const Current = pages[page];
 
+  const pseudoFs = fs.active && !fs.isNative;
+
   return (
-    <main className="relative h-[100dvh] w-screen overflow-hidden bg-[#0c0810]">
+    <main
+      className={`relative h-[100dvh] w-screen overflow-hidden bg-[#0c0810] ${pseudoFs ? "pseudo-fs" : ""}`}
+      style={pseudoFs ? { position: "fixed", inset: 0, zIndex: 9999 } : undefined}
+    >
       <AnimatePresence custom={direction} initial={false}>
         <motion.div
           key={page}
@@ -104,9 +111,20 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="fixed top-3 right-4 sm:top-4 sm:right-5 z-50 flex items-center gap-1.5 px-3 py-1.5 rounded-full glass">
-        <span className="font-serif-display text-amber-50 text-sm">{String(page + 1).padStart(2, "0")}</span>
-        <span className="font-elegant text-amber-100/50 text-xs">/ 08</span>
+      <div className="fixed top-3 right-4 sm:top-4 sm:right-5 z-50 flex items-center gap-2">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass">
+          <span className="font-serif-display text-amber-50 text-sm">{String(page + 1).padStart(2, "0")}</span>
+          <span className="font-elegant text-amber-100/50 text-xs">/ 08</span>
+        </div>
+        <button
+          onClick={fs.toggle}
+          aria-label={fs.active ? "Exit fullscreen" : "Enter fullscreen"}
+          aria-pressed={fs.active}
+          className="flex items-center justify-center w-9 h-9 rounded-full glass-strong premium-shadow text-amber-50/90 hover:scale-105 active:scale-95 transition-transform"
+          style={{ touchAction: "manipulation" }}
+        >
+          {fs.active ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+        </button>
       </div>
     </main>
   );

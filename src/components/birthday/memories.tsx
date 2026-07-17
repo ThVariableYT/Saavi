@@ -89,7 +89,7 @@ export default function Memories() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="flex-1 max-w-md">
-          <div className="relative p-5 sm:p-6 rounded-xl" style={{ background: "linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03))", boxShadow: "inset 0 0 0 1px rgba(232,185,35,0.18)" }}>
+          <div className="relative p-5 sm:p-6 rounded-xl" style={{ background: "linear-gradient(160deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05))", boxShadow: "inset 0 0 0 1px rgba(232,185,35,0.22), 0 8px 40px -12px rgba(0,0,0,0.4)", backdropFilter: "blur(22px) saturate(160%)", WebkitBackdropFilter: "blur(22px) saturate(160%)" }}>
             <span className="font-script text-amber-200 text-2xl sm:text-3xl">the memories</span>
             <div className="font-elegant text-amber-50/85 space-y-3 mt-2 thin-scrollbar" style={{ fontSize: "clamp(0.98rem, 1.7vw, 1.12rem)", lineHeight: 1.75, maxHeight: "44vh", overflowY: "auto" }}>
               <p>Do you remember turning the volume all the way up, windows down, singing every word like the whole street was our stage? Those four boys and their songs were the background music to everything — first crushes, late nights, inside jokes that still make us laugh until it hurts.</p>

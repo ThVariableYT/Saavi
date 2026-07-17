@@ -72,3 +72,24 @@ Stage Summary:
 - "Saavi" glow is now an elegant pulsing radial halo (no rectangular box) on page 1 & 8.
 - Vinyl player upgraded to premium: fine grooves, sheen, gold label ring, realistic tonearm with counterweight + headshell.
 - All verified on desktop + mobile, no errors.
+
+---
+Task ID: 4
+Agent: main (Z.ai Code)
+Task: Increase blur in glass text box on page 5; enclose page 6 text with a glassmorphic border like page 5; add a fullscreen option for mobile that works on iOS.
+
+Work Log:
+- Page 5 (memories.tsx): increased glass blur from none to backdrop-filter blur(22px) saturate(160%) + WebkitBackdropFilter; raised glass opacity (0.12→0.05 gradient) and added a soft drop shadow + brighter gold inset border so the frosted effect reads clearly.
+- Page 6 (oreo.tsx): wrapped the memorial text in a matching glassmorphic card — same style as page 5 (linear-gradient bg, inset gold border, blur(22px) saturate(160%), rounded-xl, padding) with a "in his memory" script label. Scrollable inner text.
+- Fullscreen (iOS-safe): created src/hooks/use-fullscreen.ts. Detects iOS (iPad/iPhone/iPod + Mac touch). On non-iOS uses native Fullscreen API (requestFullscreen / webkitRequestFullscreen); on iOS uses a CSS pseudo-fullscreen (position:fixed, inset:0 with env(safe-area-inset-*) via viewport-fit=cover) since iOS Safari blocks arbitrary-element Fullscreen API. Syncs state via fullscreenchange/webkitfullscreenchange listeners. Toggle/enter/exit helpers.
+- Added viewport export to layout.tsx: { width, initialScale:1, viewportFit:cover, themeColor } so iOS safe-area insets + black theme color apply.
+- Added .pseudo-fs + .safe-top/.safe-bottom utilities to globals.css using env(safe-area-inset-*).
+- Wired fullscreen into page.tsx: a Maximize2/Minimize2 toggle button in the top bar (next to page counter), glass-strong styled, touch-action:manipulation (prevents iOS double-tap zoom), aria-pressed/aria-label. Applies pseudo-fs class + fixed inset style to <main> when active on iOS.
+- Fixed lint: replaced setState-in-effect (react-hooks/set-state-in-effect) by moving isIOS()/nativeSupported() to plain const evaluation (client-only hook, runs after hydration).
+- Lint clean. Dev server clean.
+- Agent Browser verified: glass cards match on page 5 & 6 (VLM confirmed same style, blurred translucent bg, border) on mobile + desktop; fullscreen button present and toggles Enter/Exit with no console errors; fullscreen layout fills viewport without breaking content; exit returns to normal. No hydration/runtime errors.
+
+Stage Summary:
+- Page 5 glass text card: stronger frosted blur (22px) + brighter gold border.
+- Page 6 text: now enclosed in a matching glassmorphic card ("in his memory").
+- Fullscreen toggle: cross-platform — native Fullscreen API on desktop/Android, CSS pseudo-fullscreen with iOS safe-area support on iPhone/iPad. Button in top bar, no errors, layout-safe.

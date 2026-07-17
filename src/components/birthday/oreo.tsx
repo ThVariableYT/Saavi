@@ -57,10 +57,13 @@ export default function Oreo() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="flex-1">
-          <div className="font-elegant text-amber-50/85 space-y-3 text-center sm:text-left thin-scrollbar" style={{ fontSize: "clamp(1.02rem, 1.8vw, 1.16rem)", lineHeight: 1.8, maxHeight: "46vh", overflowY: "auto" }}>
-            <p>Some souls leave paw prints that never quite fade. Oreo was one of them — a wagging tail at the door, a warm nose finding your hand on the hardest days, a small black-and-white heart that loved without ever needing a reason.</p>
-            <p>He taught us what loyalty looks like when it has four paws, what joy sounds like in the rattle of a lead, what unconditional means before we ever knew the word. The garden is quieter now, but if you sit still, you can still hear him — running, always running, toward the people he loved.</p>
-            <p className="font-script text-amber-100 text-xl sm:text-2xl pt-1">Forever a good boy. Forever missed. Forever ours.</p>
+          <div className="relative p-5 sm:p-6 rounded-xl" style={{ background: "linear-gradient(160deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05))", boxShadow: "inset 0 0 0 1px rgba(216,184,120,0.22), 0 8px 40px -12px rgba(0,0,0,0.4)", backdropFilter: "blur(22px) saturate(160%)", WebkitBackdropFilter: "blur(22px) saturate(160%)" }}>
+            <span className="font-script text-amber-100 text-2xl sm:text-3xl">in his memory</span>
+            <div className="font-elegant text-amber-50/85 space-y-3 mt-2 text-center sm:text-left thin-scrollbar" style={{ fontSize: "clamp(1.02rem, 1.8vw, 1.16rem)", lineHeight: 1.8, maxHeight: "44vh", overflowY: "auto" }}>
+              <p>Some souls leave paw prints that never quite fade. Oreo was one of them — a wagging tail at the door, a warm nose finding your hand on the hardest days, a small black-and-white heart that loved without ever needing a reason.</p>
+              <p>He taught us what loyalty looks like when it has four paws, what joy sounds like in the rattle of a lead, what unconditional means before we ever knew the word. The garden is quieter now, but if you sit still, you can still hear him — running, always running, toward the people he loved.</p>
+              <p className="font-script text-amber-100 text-xl sm:text-2xl pt-1">Forever a good boy. Forever missed. Forever ours.</p>
+            </div>
           </div>
         </motion.div>
       </div>

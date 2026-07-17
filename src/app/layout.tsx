@@ -30,6 +30,13 @@ export const metadata: Metadata = {
   icons: { icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg" },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#0c0810",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
