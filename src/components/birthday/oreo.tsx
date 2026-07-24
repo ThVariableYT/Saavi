@@ -45,7 +45,7 @@ export default function Oreo() {
         <motion.div initial={{ opacity: 0, scale: 0.9, rotate: -3 }} animate={{ opacity: 1, scale: 1, rotate: -2 }} transition={{ duration: 0.9, delay: 0.15, type: "spring", bounce: 0.3 }} className="relative shrink-0">
           <div className="relative rounded-lg p-2.5 pb-4" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.55) 100%)", boxShadow: "0 25px 60px -15px rgba(50,80,120,0.3), inset 0 0 0 1px rgba(255,255,255,0.8)", backdropFilter: "blur(8px)" }}>
             <div className="overflow-hidden rounded" style={{ width: "min(58vw, 14rem)", aspectRatio: "3 / 4" }}>
-              <img src="C:\Users\sarik\Documents\GitHub\Saavi's Birthday\public\photos\oreo2.jpeg" alt="Oreo the dog" className="w-full h-full object-cover" />
+              <img src="public\photos\oreo2.jpeg" alt="Oreo the dog" className="w-full h-full object-cover" />
             </div>
             <p className="text-center font-script text-slate-700 text-lg mt-2">our sweet Oreo</p>
           </div>

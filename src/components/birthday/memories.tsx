@@ -85,7 +85,7 @@ export default function Memories() {
               </div>
             </div>
           </div>
-          {error && <p className="text-center mt-2 font-elegant text-indigo-700/60 text-xs">Add your song at <span className="font-mono text-indigo-800">/public/memories/onedirection-song.mp3</span></p>}
+          {error && <p className="text-center mt-2 font-elegant text-indigo-700/60 text-xs">Add your song at <span className="font-mono text-indigo-800">/public/memories/Olivia.m4a</span></p>}
         </motion.div>
 
         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="flex-1 max-w-md">
@@ -100,7 +100,7 @@ export default function Memories() {
         </motion.div>
       </div>
 
-      <audio ref={audioRef} src="/memories/onedirection-song.mp3" preload="none" />
+      <audio ref={audioRef} src="/memories/Olivia.m4a" preload="none" />
     </div>
   );
 }
