@@ -8,12 +8,12 @@ import { Sunflower, LegoBrick, CuteAnimal, Sparkle, AmbientMotes, GlowOrb } from
 type Slide = { type: "image" | "video"; src: string; caption: string };
 
 const SLIDES: Slide[] = [
-  { type: "image", src: "/photos/saavi13.jpeg", caption:  },
-  { type: "image", src: "/photos/saavi2.jpeg", caption:  },
-  { type: "image", src: "/photos/saavi12.jpeg", caption: },
-  { type: "image", src: "/photos/saavi6.jpeg", caption: },
-  { type: "image", src: "/photos/saavi4.jpeg", caption: },
-  { type: "image", src: "/photos/saavi10.jpeg", caption:},
+  { type: "image", src: "/photos/saavi13.jpeg"},
+  { type: "image", src: "/photos/saavi2.jpeg"},
+  { type: "image", src: "/photos/saavi12.jpeg"},
+  { type: "image", src: "/photos/saavi6.jpeg"},
+  { type: "image", src: "/photos/saavi4.jpeg"},
+  { type: "image", src: "/photos/saavi10.jpeg"},
 ];
 
 export default function Photos() {
