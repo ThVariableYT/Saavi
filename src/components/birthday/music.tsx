@@ -6,9 +6,9 @@ import { Play, Pause } from "lucide-react";
 import { MusicNote, Sunflower, LegoBrick, CuteAnimal, Sparkle, AmbientMotes, GlowOrb } from "./decorations";
 
 const TRACKS = [
-  { title: "Golden Hour", artist: "Lay Jaa", cover: "/music/cover1.jpg", src: "/music/Lay_Jaa.m4a", color: "#2563eb" },
-  { title: "Starlight Lullaby", artist: "AZUL", cover: "/music/cover2.jpg", src: "/music/AZUL.m4a", color: "#7c5fd6" },
-  { title: "Sunflower Days", artist: "DOPAMINE", cover: "/music/cover3.jpg", src: "/music/DOPAMINE.m4a", color: "#2a9d8f" },
+  { title: "Lay Jaa", artist: "Lay Jaa", cover: "/music/cover1.jpg", src: "/music/Lay_Jaa.m4a", color: "#2563eb" },
+  { title: "AZUL", artist: "Guru Randhawa", cover: "/music/cover2.jpg", src: "/music/AZUL.m4a", color: "#7c5fd6" },
+  { title: "Dopamine", artist: "Guru Randhawa", cover: "/music/cover3.jpg", src: "/music/DOPAMINE.m4a", color: "#2a9d8f" },
 ];
 
 export default function MusicPage() {
