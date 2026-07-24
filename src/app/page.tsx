@@ -62,7 +62,7 @@ export default function Home() {
 
   return (
     <main
-      className={`relative h-[100dvh] w-screen overflow-hidden bg-[#0c0810] ${pseudoFs ? "pseudo-fs" : ""}`}
+      className={`relative h-[100dvh] w-screen overflow-hidden bg-[#eaf1fb] ${pseudoFs ? "pseudo-fs" : ""}`}
       style={pseudoFs ? { position: "fixed", inset: 0, zIndex: 9999 } : undefined}
     >
       <AnimatePresence custom={direction} initial={false}>
@@ -84,7 +84,7 @@ export default function Home() {
         href={page > 0 ? `#${page}` : undefined}
         onClick={(e) => { if (page === 0) return; e.preventDefault(); go(page - 1); }}
         aria-label="Previous page"
-        className={`fixed bottom-5 left-4 sm:bottom-7 sm:left-7 z-50 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full font-elegant tracking-wide text-sm transition-all duration-300 ${page === 0 ? "opacity-0 pointer-events-none translate-y-2" : "glass-strong premium-shadow text-amber-50/90 hover:scale-105 hover:-translate-x-0.5"}`}
+        className={`fixed bottom-5 left-4 sm:bottom-7 sm:left-7 z-50 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full font-elegant tracking-wide text-sm transition-all duration-300 ${page === 0 ? "opacity-0 pointer-events-none translate-y-2" : "glass-strong premium-shadow text-blue-900/90 hover:scale-105 hover:-translate-x-0.5"}`}
       >
         <ChevronLeft className="w-4 h-4" />
         <span className="hidden sm:inline">Previous</span>
@@ -94,7 +94,7 @@ export default function Home() {
         href={page < 7 ? `#${page + 2}` : undefined}
         onClick={(e) => { if (page === 7) return; e.preventDefault(); go(page + 1); }}
         aria-label="Next page"
-        className={`fixed bottom-5 right-4 sm:bottom-7 sm:right-7 z-50 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full font-elegant tracking-wide text-sm transition-all duration-300 ${page === 7 ? "opacity-0 pointer-events-none translate-y-2" : "glass-strong premium-shadow text-amber-50/90 hover:scale-105 hover:translate-x-0.5"}`}
+        className={`fixed bottom-5 right-4 sm:bottom-7 sm:right-7 z-50 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full font-elegant tracking-wide text-sm transition-all duration-300 ${page === 7 ? "opacity-0 pointer-events-none translate-y-2" : "glass-strong premium-shadow text-blue-900/90 hover:scale-105 hover:translate-x-0.5"}`}
       >
         <span className="hidden sm:inline">Next</span>
         <ChevronRight className="w-4 h-4" />
@@ -106,21 +106,21 @@ export default function Home() {
             key={i}
             onClick={() => go(i)}
             aria-label={`Go to page ${i + 1}`}
-            className={`transition-all rounded-full ${i === page ? "w-7 h-1.5 bg-amber-400" : "w-1.5 h-1.5 bg-amber-100/30 hover:bg-amber-100/60"}`}
+            className={`transition-all rounded-full ${i === page ? "w-7 h-1.5 bg-blue-600" : "w-1.5 h-1.5 bg-blue-400/40 hover:bg-blue-400/70"}`}
           />
         ))}
       </div>
 
       <div className="fixed top-3 right-4 sm:top-4 sm:right-5 z-50 flex items-center gap-2">
         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass">
-          <span className="font-serif-display text-amber-50 text-sm">{String(page + 1).padStart(2, "0")}</span>
-          <span className="font-elegant text-amber-100/50 text-xs">/ 08</span>
+          <span className="font-serif-display text-blue-900 text-sm">{String(page + 1).padStart(2, "0")}</span>
+          <span className="font-elegant text-blue-700/50 text-xs">/ 08</span>
         </div>
         <button
           onClick={fs.toggle}
           aria-label={fs.active ? "Exit fullscreen" : "Enter fullscreen"}
           aria-pressed={fs.active}
-          className="flex items-center justify-center w-9 h-9 rounded-full glass-strong premium-shadow text-amber-50/90 hover:scale-105 active:scale-95 transition-transform"
+          className="flex items-center justify-center w-9 h-9 rounded-full glass-strong premium-shadow text-blue-900/90 hover:scale-105 active:scale-95 transition-transform"
           style={{ touchAction: "manipulation" }}
         >
           {fs.active ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
