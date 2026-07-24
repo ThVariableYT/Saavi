@@ -6,9 +6,9 @@ import { Play, Pause } from "lucide-react";
 import { MusicNote, Sunflower, LegoBrick, CuteAnimal, Sparkle, AmbientMotes, GlowOrb } from "./decorations";
 
 const TRACKS = [
-  { title: "Golden Hour", artist: "Our favourite tune", cover: "/music/cover1.jpg", src: "public\\music\\Lay _Jaa.m4a", color: "#2563eb" },
-  { title: "Starlight Lullaby", artist: "For the quiet nights", cover: "/music/cover2.jpg", src: "public\\music\\AZUL.m4a", color: "#7c5fd6" },
-  { title: "Sunflower Days", artist: "Summer in a song", cover: "/music/cover3.jpg", src: "public\\music\\DOPAMINE.m4a", color: "#2a9d8f" },
+  { title: "Golden Hour", artist: "Our favourite tune", cover: "/music/cover1.jpg", src: "/music/Lay _Jaa.m4a", color: "#2563eb" },
+  { title: "Starlight Lullaby", artist: "For the quiet nights", cover: "/music/cover2.jpg", src: "/music/AZUL.m4a", color: "#7c5fd6" },
+  { title: "Sunflower Days", artist: "Summer in a song", cover: "/music/cover3.jpg", src: "/music/DOPAMINE.m4a", color: "#2a9d8f" },
 ];
 
 export default function MusicPage() {

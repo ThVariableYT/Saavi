@@ -8,12 +8,12 @@ import { Sunflower, LegoBrick, CuteAnimal, Sparkle, AmbientMotes, GlowOrb } from
 type Slide = { type: "image" | "video"; src: string; caption: string };
 
 const SLIDES: Slide[] = [
-  { type: "image", src: "public\\photos\\saavi13.jpeg", caption: "Sunflowers & your laugh — the perfect afternoon" },
-  { type: "image", src: "public\\photos\\saavi2.jpeg", caption: "Quiet coffees that turned into long talks" },
-  { type: "image", src: "public\\photos\\saavi12.jpeg", caption: "Footprints by the sea, sunset in our eyes" },
-  { type: "image", src: "public\\photos\\saavi6.jpeg", caption: "A little moving memory — press play" },
-  { type: "image", src: "public\\photos\\saavi4.jpeg", caption: "Candles, wishes, and you in the glow" },
-  { type: "image", src: "public\\photos\\saavi10.jpeg", caption: "Where the wildflowers were, so were we" },
+  { type: "image", src: "/photos/saavi13.jpeg", caption: "Sunflowers & your laugh — the perfect afternoon" },
+  { type: "image", src: "/photos/saavi2.jpeg", caption: "Quiet coffees that turned into long talks" },
+  { type: "image", src: "/photos/saavi12.jpeg", caption: "Footprints by the sea, sunset in our eyes" },
+  { type: "image", src: "/photos/saavi6.jpeg", caption: "A little moving memory — press play" },
+  { type: "image", src: "/photos/saavi4.jpeg", caption: "Candles, wishes, and you in the glow" },
+  { type: "image", src: "/photos/saavi10.jpeg", caption: "Where the wildflowers were, so were we" },
 ];
 
 export default function Photos() {
