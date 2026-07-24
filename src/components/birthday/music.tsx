@@ -6,9 +6,9 @@ import { Play, Pause } from "lucide-react";
 import { MusicNote, Sunflower, LegoBrick, CuteAnimal, Sparkle, AmbientMotes, GlowOrb } from "./decorations";
 
 const TRACKS = [
-  { title: "Golden Hour", artist: "Our favourite tune", cover: "/music/cover1.jpg", src: "/music/track1.flac", color: "#2563eb" },
-  { title: "Starlight Lullaby", artist: "For the quiet nights", cover: "/music/cover2.jpg", src: "/music/track2.flac", color: "#7c5fd6" },
-  { title: "Sunflower Days", artist: "Summer in a song", cover: "/music/cover3.jpg", src: "/music/track3.flac", color: "#2a9d8f" },
+  { title: "Golden Hour", artist: "Our favourite tune", cover: "/music/cover1.jpg", src: "C:\\Users\\sarik\\Documents\\GitHub\\Saavi's Birthday\\public\\music\\Lay Jaa - Keshav Tyohar.m4a", color: "#2563eb" },
+  { title: "Starlight Lullaby", artist: "For the quiet nights", cover: "/music/cover2.jpg", src: "C:\Users\sarik\Documents\GitHub\Saavi's Birthday\public\music\AZUL - Lavish Dhiman, Guru Randhawa, Gurjit Gill.m4a", color: "#7c5fd6" },
+  { title: "Sunflower Days", artist: "Summer in a song", cover: "/music/cover3.jpg", src: "C:\Users\sarik\Documents\GitHub\Saavi's Birthday\public\music\DOPAMINE - Lavish Dhiman, Guru Randhawa, Gurjit Gill.m4a", color: "#2a9d8f" },
 ];
 
 export default function MusicPage() {
