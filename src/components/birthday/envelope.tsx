@@ -88,25 +88,16 @@ export default function Envelope() {
                   style={{ fontSize: "clamp(0.98rem, 1.7vw, 1.12rem)", lineHeight: 1.75 }}
                 >
                   <p>
-                    Another trip around the sun, and here you are — even brighter than the year before.
-                    I wanted to gather a few small things, a few little corners of memories and music and
-                    sunshine, and keep them all in one place for you.
-                  </p>
-                  <p>
-                    This tiny website is not much, but it is stitched with thoughts of you — your laugh,
-                    your kindness, the way you light up around animals and sunflowers and tiny coloured
-                    bricks that snap together. You make ordinary days feel like something worth remembering.
-                  </p>
-                  <p>
-                    So here is to your day. To the twenty-fifth of July. To the wonderful human you are,
-                    and the even more wonderful one you are still becoming. May this year be soft where
-                    you need it soft, and brave where you want to be brave.
+                    happiest birthday saaviya.
+to one of my favourite person. to my go to person. my fun person. never have i seen a person, who is always ready  to listen to my stupid rants, yaps. who is always ready to listen to my ELITE MUSIC, cause why not. never had to think abt any single thing, when its your comfort space. i miss the old days when life was worth living, when there was this excitement to do things.
+always ready to experiment with days, food, places and every thing man. i wanna relive those days, precious days. and as you say "7 mins thing", youll definitely be in it. trust me on this one. i am eagerly waiting when are you gonna write the book "how life fucks you 101" hahahahhahahahahaa. i wanna have grandmamas pasta mannn with you, LUNA FUCKING ET SOL ASW. i wanna just sit in peace and blast music with you. it has been so long. :( comforting it is. i wish love, luck and light to you. i wish all the good things. i hope this website makes you happy because everything reminds me of you in thissss. i am just waiting to see your reaction. CAB RIDES WHEN? oml i miss that so much. well anyways hope this brings smile to your face, i genuinely want that. 
+
                   </p>
                   <p className="text-center font-script text-blue-800 text-xl sm:text-2xl pt-2">
-                    Happy Birthday, Saavi.
+                    happiest birthday saaviya! only and only love for you~
                   </p>
                   <p className="text-right font-script text-slate-500 text-lg sm:text-xl pr-2">
-                    — always, with love
+                    ~heena
                   </p>
                 </div>
               </motion.div>
