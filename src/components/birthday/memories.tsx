@@ -78,7 +78,7 @@ export default function Memories() {
               {playing ? <Pause className="w-5 h-5" fill="white" /> : <Play className="w-5 h-5 ml-0.5" fill="white" />}
             </button>
             <div className="flex-1 min-w-0">
-              <p className="font-serif-display text-indigo-950 truncate text-base sm:text-lg">What Makes You Beautiful</p>
+              <p className="font-serif-display text-indigo-950 truncate text-base sm:text-lg">Olivia</p>
               <p className="font-elegant text-indigo-700/60 text-xs sm:text-sm truncate">One Direction</p>
               <div className="mt-2 h-0.5 bg-indigo-900/15 rounded-full overflow-hidden">
                 <motion.div className="h-full bg-indigo-500" animate={{ width: `${progress * 100}%` }} transition={{ ease: "linear" }} />
