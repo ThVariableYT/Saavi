@@ -66,7 +66,7 @@ export default function Memories() {
       <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-center gap-5 lg:gap-10 px-6 pb-6 max-w-5xl mx-auto w-full">
         <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative shrink-0 w-full max-w-sm">
           <div className="relative rounded-lg overflow-hidden" style={{ aspectRatio: "4 / 3", boxShadow: "0 25px 60px -15px rgba(60,50,120,0.3), inset 0 0 0 1px rgba(255,255,255,0.5)" }}>
-            <img src="/memories/onedirection.jpg" alt="One Direction" className="w-full h-full object-cover" />
+            <img src="/memories/image.jpg" alt="One Direction" className="w-full h-full object-cover" />
             <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 45%, rgba(40,30,70,0.7) 100%)" }} />
             <motion.div animate={{ opacity: [0.35, 0.9, 0.35] }} transition={{ duration: 3, repeat: Infinity }} className="absolute top-3 left-3 px-2 py-0.5 rounded-full text-[0.6rem] font-elegant tracking-widest uppercase text-white bg-black/40" style={{ boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.4)" }}>
               ● Live in memory
@@ -85,7 +85,7 @@ export default function Memories() {
               </div>
             </div>
           </div>
-          {error && <p className="text-center mt-2 font-elegant text-indigo-700/60 text-xs">Add your song at <span className="font-mono text-indigo-800">/public/memories/Olivia.m4a</span></p>}
+          {error && <p className="text-center mt-2 font-elegant text-indigo-700/60 text-xs">Add your song at <span className="font-mono text-indigo-800">memories/image.jpg</span></p>}
         </motion.div>
 
         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="flex-1 max-w-md">
