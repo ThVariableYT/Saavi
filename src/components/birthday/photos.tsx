@@ -8,12 +8,12 @@ import { Sunflower, LegoBrick, CuteAnimal, Sparkle, AmbientMotes, GlowOrb } from
 type Slide = { type: "image" | "video"; src: string; caption: string };
 
 const SLIDES: Slide[] = [
-  { type: "image", src: "/photos/memory1.jpg", caption: "Sunflowers & your laugh — the perfect afternoon" },
-  { type: "image", src: "/photos/memory2.jpg", caption: "Quiet coffees that turned into long talks" },
-  { type: "image", src: "/photos/memory3.jpg", caption: "Footprints by the sea, sunset in our eyes" },
-  { type: "video", src: "/photos/memory-video.mp4", caption: "A little moving memory — press play" },
-  { type: "image", src: "/photos/memory4.jpg", caption: "Candles, wishes, and you in the glow" },
-  { type: "image", src: "/photos/memory5.jpg", caption: "Where the wildflowers were, so were we" },
+  { type: "image", src: "C:\Users\sarik\Documents\GitHub\Saavi's Birthday\public\photos\saavi13.jpeg", caption: "Sunflowers & your laugh — the perfect afternoon" },
+  { type: "image", src: "C:\Users\sarik\Documents\GitHub\Saavi's Birthday\public\photos\saavi2.jpeg", caption: "Quiet coffees that turned into long talks" },
+  { type: "image", src: "C:\Users\sarik\Documents\GitHub\Saavi's Birthday\public\photos\saavi12.jpeg", caption: "Footprints by the sea, sunset in our eyes" },
+  { type: "video", src: "C:\Users\sarik\Documents\GitHub\Saavi's Birthday\public\photos\saavi6.jpeg", caption: "A little moving memory — press play" },
+  { type: "image", src: "C:\Users\sarik\Documents\GitHub\Saavi's Birthday\public\photos\saavi4.jpeg", caption: "Candles, wishes, and you in the glow" },
+  { type: "image", src: "C:\Users\sarik\Documents\GitHub\Saavi's Birthday\public\photos\saavi10.jpeg", caption: "Where the wildflowers were, so were we" },
 ];
 
 export default function Photos() {
